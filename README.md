@@ -1,4 +1,4 @@
-# Ceiling-Bounce 3D Indoor Localization
+# ultrasonic-ceiling-localization
 
 A low-cost 3D indoor positioning system that tracks a moving object using **one ultrasonic transmitter and four ground-level receivers**, exploiting **reflection off the ceiling** to cover the whole workspace. A downward-facing **laser rangefinder** measures the object's height in real time, so the system keeps working when the object is lifted, moves under a table, or operates beneath ceilings of different heights.
 
