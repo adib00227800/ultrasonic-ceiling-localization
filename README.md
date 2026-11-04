@@ -4,6 +4,8 @@ A low-cost 3D indoor positioning system that tracks a moving object using **one 
 
 Developed for the *Measurement Systems* course (Phase 2), Faculty of Mechanical Engineering, University of Tehran.
 
+![Conceptual model](images/concept_model.jpeg)
+
 ---
 
 ## Key ideas
@@ -27,6 +29,23 @@ A VL53L0X (GY-53) time-of-flight laser mounted under the object measures its hei
 4. The laser gives the object's height; combined with the ultrasonic path lengths, this yields the horizontal radii to each receiver.
 5. **Trilateration** (least squares) from the receivers gives the object's (x, y).
 6. Results are streamed over serial and visualized live in 3D.
+
+![Reflection geometry](images/reflection_geometry.png)
+![Trilateration](images/trilateration.png)
+
+## Physical prototype
+
+The prototype uses an Arduino Mega 2560 and HC-SR04 modules mounted on a cardboard frame (a 5-sensor setup: one transmitter and four receivers), with the laser module under the moving unit.
+
+![Prototype, top view](images/IMG_7330.jpeg)
+![Prototype, side view](images/IMG_7332__1_.jpeg)
+![Sensor mounting detail](images/IMG_7335__1_.jpeg)
+
+### Live run
+
+Real-time 3D position display in MATLAB while the hardware is running (ultrasonic distances d1 to d5, laser height, and the estimated X, Y, Z).
+
+![MATLAB live GUI](images/IMG_7331.jpeg)
 
 ---
 
@@ -77,6 +96,9 @@ Setup: 2 × 2 × 2 m cube, four floor sensors, 3D sinusoidal trajectory (10 s, 0
 
 IMU-only integration drifts; fusing it with ToF measurements via a Kalman filter gives the lowest error at every tested noise level, while the complementary filter is a lighter alternative for low-power boards. Exact values vary between runs because the noise is random.
 
+![Trajectory comparison](images/trajectory_comparison_imu0_05_tof0_03.png)
+![Error over time](images/error_over_time_imu0_05_tof0_03.png)
+
 > Note: IMU fusion (Kalman / complementary filters) is evaluated in simulation. The current hardware prototype uses ultrasonic + laser sensing.
 
 ## Error sources and mitigation
@@ -92,10 +114,12 @@ IMU-only integration drifts; fusing it with ToF measurements via a Kalman filter
 - Coded signals (chirp/PRN) to reject multipath
 - Quantitative experimental evaluation against a ground-truth reference
 
-## Authors
+## Team and contributions
 
-Soheil Dehghani, Seyed Mohammad Hossein Emami, Adib Saffari
-Supervisor: Dr. Ayati · University of Tehran, 2025
+Team project of three students. Supervisor: Dr. Ayati, University of Tehran, 2025.
+
+- **Adib Saffari**: overall system design and the ceiling-reflection sensing mechanism (one transmitter, four receivers); the method for computing position from the reflected-wave geometry; and the addition of the downward-facing laser to measure height automatically.
+- **Soheil Dehghani** and **Seyed Mohammad Hossein Emami**: the IMU-based part of the project (IMU integration, Kalman and complementary filtering, building on an IMU code base from an earlier project), and the MATLAB implementation of the simulation and numerical computations.
 
 ## License
 
