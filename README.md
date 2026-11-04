@@ -38,14 +38,14 @@ A VL53L0X (GY-53) time-of-flight laser mounted under the object measures its hei
 The prototype uses an Arduino Mega 2560 and HC-SR04 modules mounted on a cardboard frame (a 5-sensor setup: one transmitter and four receivers), with the laser module under the moving unit.
 
 ![Prototype, top view](images/IMG_7330.jpeg)
-![Prototype, side view](images/IMG_7332__1_.jpeg)
-![Sensor mounting detail](images/IMG_7335__1_.jpeg)
+![Prototype, side view](images/IMG_7332%20%281%29.jpeg)
+![Sensor mounting detail](images/IMG_7335.jpeg)
 
 ### Live run
 
 Real-time 3D position display in MATLAB while the hardware is running (ultrasonic distances d1 to d5, laser height, and the estimated X, Y, Z).
 
-![MATLAB live GUI](images/IMG_7331.jpeg)
+![MATLAB live GUI](images/IMG_7331%20%281%29.jpeg)
 
 ---
 
@@ -96,8 +96,8 @@ Setup: 2 × 2 × 2 m cube, four floor sensors, 3D sinusoidal trajectory (10 s, 0
 
 IMU-only integration drifts; fusing it with ToF measurements via a Kalman filter gives the lowest error at every tested noise level, while the complementary filter is a lighter alternative for low-power boards. Exact values vary between runs because the noise is random.
 
-![Trajectory comparison](images/trajectory_comparison_imu0_05_tof0_03.png)
-![Error over time](images/error_over_time_imu0_05_tof0_03.png)
+![Trajectory comparison](images/trajectory_comparison_imu0.05_tof0.03.png)
+![Error over time](images/error_over_time_imu0.05_tof0.03.png)
 
 > Note: IMU fusion (Kalman / complementary filters) is evaluated in simulation. The current hardware prototype uses ultrasonic + laser sensing.
 
